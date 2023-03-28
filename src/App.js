@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import { Flex, Heading, IconButton, Spacer, useColorMode, useMediaQuery, VStack } from '@chakra-ui/react';
 import './App.css';
+import { FaSun,FaMoon,FaLinkedin,FaGithub,FaTwitterSquare} from "react-icons/fa";
+import Header from './components/Header';
+import Social from './components/Social';
+import Profile from './components/Profile';
 
 function App() {
+
+  const {colorMode,toggleColorMode} = useColorMode()
+  const isDark = colorMode==="dark"
+  const [isNotSmallerscr] = useMediaQuery("min-width:600px"); 
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <VStack p="5" ml={isNotSmallerscr?"8":"5"} mr={isNotSmallerscr?"8":"5"}>
+        <Flex w="100%">
+          <Heading size="md" mt="2" cursor="pointer" fontWeight="semibold" bgGradient="linear(to-r, cyan.400, blue.500, purple.600)" bgClip='text' onClick={() =>window.open("https://github.com/Mahir-Neema/portfolio_website_chakra_ui")}>Source code</Heading>
+          <Spacer></Spacer>
+          <IconButton icon={<FaLinkedin/>}  isRound={true}></IconButton>
+          <IconButton ml="2" icon={<FaGithub/>}  isRound={true}></IconButton>
+          <IconButton ml="2" icon={<FaTwitterSquare/>}  isRound={true}></IconButton>
+          <IconButton ml="8" icon={isDark?<FaSun/>:<FaMoon/>} isRound={true} onClick={toggleColorMode}></IconButton>
+        </Flex>
+        <Header/>
+        <Social/>
+        <Profile/>
+      </VStack>
   );
 }
 
