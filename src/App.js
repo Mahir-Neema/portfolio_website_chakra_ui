@@ -2,7 +2,6 @@ import { Flex, Heading, IconButton, Spacer, useColorMode, useMediaQuery, VStack 
 import './App.css';
 import { FaSun,FaMoon,FaLinkedin,FaGithub,FaTwitterSquare} from "react-icons/fa";
 import Header from './components/Header';
-import Social from './components/Social';
 import Profile from './components/Profile';
 
 function App() {
@@ -22,7 +21,6 @@ function App() {
           <IconButton ml="8" icon={isDark?<FaSun/>:<FaMoon/>} isRound={true} onClick={toggleColorMode}></IconButton>
         </Flex>
         <Header/>
-        <Social/>
         <Profile/>
       </VStack>
   );
