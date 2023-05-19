@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://Mahir-Neema.github.io/portfolio_website_chakra_ui",
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.19",
     "@chakra-ui/react": "^2.5.4",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
